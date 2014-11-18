@@ -41,7 +41,6 @@
                   if (!data.success) {
                     // if not successful, bind errors to error variables
                       $location.path('/failed');
-                      window.location = $location.path;
                       $http.path = $location.path;
                   } else {
                     // if successful, bind success message to message
