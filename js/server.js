@@ -25,7 +25,8 @@ app.use(function(req, res, next) {
 app.post('/post', function( req, res) {
         console.log(req.body);
     res.send(req.body);
-    var d = new Date(dateString);
+    var d = req.body.firstname;
+    var c = req.body.lastname;
     doc = new PDFDocument();
     var fp = '/home/enroll/';             //creating a new PDF object
     var fp1 = fp.concat(d);
