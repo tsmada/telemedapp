@@ -20,7 +20,8 @@ app.use(function(req, res, next) {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-        res.message = "Success!";
+        var message = "Success!";
+        res.send(message);
     });
 
 app.set('port', process.env.PORT || 8000);
