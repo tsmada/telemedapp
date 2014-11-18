@@ -20,7 +20,7 @@ app.use(function(req, res, next) {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-        if (req.body.length < 5) {
+        if (!req.body.firstname) {
             res.send("NOT ENOUGH ARGUMENTS");
         } else {
     res.send(req.body);
