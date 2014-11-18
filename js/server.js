@@ -34,7 +34,7 @@ app.post('/post', function( req, res) {
     var fp3 = fp2.concat(".pdf");
 doc.pipe(fs.createWriteStream(fp3));  //creating a write stream
             //to write the content on the file system
-doc.text(req.body.firstname, 100, 100);             //adding the text to be written,
+doc.text(JSON.stringify(req.body), 100, 100);             //adding the text to be written,
             // more things can be added here including new pages
 doc.end(); //we end the document writing.
     });
