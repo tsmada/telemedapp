@@ -1,7 +1,7 @@
 /** Application Dependencies */
 var sys = require('sys');
 var express = require('express');
-var util = requite('util');
+var util = require('util');
 /** New Application ENV OBJ */
 var app = express();
 var bodyParser = require('body-parser');
