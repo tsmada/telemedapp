@@ -6,7 +6,7 @@ var util = require('util');
 var app = express();
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
-app.use(bodyParser);
+app.use(bodyParser());
 app.use(expressValidator([options]));
 var http = require('http');
 app.use(bodyParser.urlencoded());
