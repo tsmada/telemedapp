@@ -23,7 +23,7 @@ app.post('/post', function( req, res) {
         if (req.body.length < 5) {
             res.send("NOT ENOUGH ARGUMENTS");
         } else {
-    res.send(res.body);
+    res.send(req.body);
 };
     });
 
