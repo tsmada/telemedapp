@@ -25,6 +25,9 @@
       $scope.formData = {};
 
       // process the form
+      $scope.go = function() {
+        window.location = '/'
+      };
       $scope.processForm = function() {
         $http({
               method  : 'POST',
@@ -37,14 +40,13 @@
 
                   if (!data.success) {
                     // if not successful, bind errors to error variables
-                      $location.path('http://2015enroll.com/failed');
+                      $location.path('/failed');
                       window.location = $location.path;
                       $http.path = $location.path;
                   } else {
                     // if successful, bind success message to message
                       $scope.message = data.message;
-                      $location.path('http://2015enroll.com/success');
-                      window.location = $location.path;
+                      $location.path('/success');
                       $http.path = $location.path;
                   }
               });
@@ -162,7 +164,7 @@
 
 
     <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-success btn-lg btn-block">
+    <button ng-click="go()" type="submit" class="btn btn-success btn-lg btn-block">
       <span class="glyphicon glyphicon-flash"></span> Submit!
     </button>
   </form>
