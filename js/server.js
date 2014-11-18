@@ -1,9 +1,13 @@
 /** Application Dependencies */
 var sys = require('sys');
 var express = require('express');
+var util = requite('util');
 /** New Application ENV OBJ */
 var app = express();
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+app.use(bodyParser);
+app.use(expressValidator([options]));
 var http = require('http');
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
@@ -20,6 +24,7 @@ app.use(function(req, res, next) {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
+        req.checkBody('firstname', 'Please provide your first name').notEmpty();
         if (!req.body.firstname) {
             res.send("NOT ENOUGH ARGUMENTS");
         } else {
