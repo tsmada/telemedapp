@@ -3,7 +3,9 @@ var sys = require('sys');
 var express = require('express');
 /** New Application ENV OBJ */
 var app = express();
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -17,7 +19,8 @@ app.use(function(req, res, next) {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-
     });
 
-app.listen(8000);
+app.set('port', process.env.PORT || 8000);
+http.createServer(app).listen(app.get('port'), function(){
+    console.log("Express server listening on port " + app.get('port'));
