@@ -16,8 +16,7 @@ app.use(function(req, res, next) {
 
 
 app.post('/post', function( req, res) {
-        console.log(req);
-        console.log('ayy')
+        console.log(req.body);
 
     });
 
