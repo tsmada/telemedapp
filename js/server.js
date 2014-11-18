@@ -20,8 +20,11 @@ app.use(function(req, res, next) {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-        var message = "Success!";
+        if (!req.body.firstname) {
+            var message = "Please insert a First Name"
         res.send(message);
+    };
+    res.send("Success!");
     });
 
 app.set('port', process.env.PORT || 8000);
