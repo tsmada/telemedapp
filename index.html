@@ -34,6 +34,7 @@
           })
               .success(function(data) {
                   console.log(data);
+                  $location.path('/success');
 
                   if (!data.success) {
                     // if not successful, bind errors to error variables
