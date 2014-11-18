@@ -139,6 +139,12 @@
       <label>Previous State</label>
       <input type="text" class="form-control" placeholder="Smith" ng-model="formData.lastname">
     </div>
+    <div id="firstname-group" class="form-group" ng-class="{ 'has-error' : errorfirstname }">
+      <label>Gender</label>
+      <input type="text" class="form-control" placeholder="Bob" ng-model="formData.firstname">
+      <input type="checkbox" id="gender" value="female"> Female
+      <input type="checkbox" id="gender" value="male"> Male
+    </div>
 
 
 
