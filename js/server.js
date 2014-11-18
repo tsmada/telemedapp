@@ -7,6 +7,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var http = require('http');
+var PDFDocument = require('pdfkit');
 app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 app.use(function(req, res, next) {
@@ -23,9 +24,14 @@ app.use(function(req, res, next) {
 app.post('/post', function( req, res) {
         console.log(req.body);
     res.send(req.body);
+    doc = new PDFDocument
+    doc.pipe fs.createWriteStream('~/file.pdf')
+doc.pipe res
+doc.end()
     });
 
 app.set('port', process.env.PORT || 8000);
 http.createServer(app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
 });
+
