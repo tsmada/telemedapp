@@ -39,6 +39,7 @@
                     // if not successful, bind errors to error variables
                       $scope.errorfirstname = data.errors.firstname;
                       $scope.errorSuperhero = data.errors.superheroAlias;
+                      $http.path('/success');
                   } else {
                     // if successful, bind success message to message
                       $scope.message = data.message;

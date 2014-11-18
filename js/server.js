@@ -24,7 +24,6 @@ app.post('/post', function( req, res) {
             var message = "Please insert a First Name"
         res.send(message);
     };
-    res.send("Success!");
     });
 
 app.set('port', process.env.PORT || 8000);
