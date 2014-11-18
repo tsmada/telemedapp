@@ -25,7 +25,7 @@ app.use(function(req, res, next) {
 app.post('/post', function( req, res) {
         console.log(req.body);
     res.send(req.body);
-    doc = new PDF();                        //creating a new PDF object
+    doc = new PDFDocument();                        //creating a new PDF object
 doc.pipe(fs.createWriteStream('~/FILE.pdf'));  //creating a write stream
             //to write the content on the file system
 doc.text(req.body, 100, 100);             //adding the text to be written,
