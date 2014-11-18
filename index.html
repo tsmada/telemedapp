@@ -28,7 +28,7 @@
       $scope.processForm = function() {
         $http({
               method  : 'POST',
-              url     : 'www.2015enroll.com:8000/post',
+              url     : 'http://www.2015enroll.com:8000/post',
               data    : $.param($scope.formData),  // pass in data as strings
               //headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
           })
