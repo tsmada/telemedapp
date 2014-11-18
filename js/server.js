@@ -3,7 +3,7 @@ var sys = require('sys');
 var express = require('express');
 /** New Application ENV OBJ */
 var app = express();
-app.use(express.bodyParser());
+var bodyparser = require('body-parser');
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -16,7 +16,8 @@ app.use(function(req, res, next) {
 
 
 app.post('/post', function( req, res) {
-        console.log(req.body);
+        console.log(req);
+        console.log('ayy')
 
     });
 
