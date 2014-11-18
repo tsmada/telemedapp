@@ -1,6 +1,7 @@
 /** Application Dependencies */
 var sys = require('sys');
 var express = require('express');
+var fs = require('fs');
 var util = require('util');
 /** New Application ENV OBJ */
 var app = express();
@@ -24,10 +25,12 @@ app.use(function(req, res, next) {
 app.post('/post', function( req, res) {
         console.log(req.body);
     res.send(req.body);
-    doc = new PDFDocument
-    doc.pipe fs.createWriteStream('~/file.pdf')
-doc.pipe res
-doc.end()
+    doc = new PDF();                        //creating a new PDF object
+doc.pipe(fs.createWriteStream('~/FILE.pdf'));  //creating a write stream
+            //to write the content on the file system
+doc.text(req.body, 100, 100);             //adding the text to be written,
+            // more things can be added here including new pages
+doc.end(); //we end the document writing.
     });
 
 app.set('port', process.env.PORT || 8000);
