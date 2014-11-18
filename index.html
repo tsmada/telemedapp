@@ -1,233 +1,91 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>2015 Enrollment Application</title>
+<!doctype html>
+<html>
+<head>
+  <title>2015 U.S. Marketplace Enrollment</title>
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- LOAD BOOTSTRAP CSS -->
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-<form class="form-horizontal" action="www.2015enroll.com:8000/post">
-<fieldset>
+  <!-- LOAD JQUERY -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <!-- LOAD ANGULAR -->
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 
-<!-- Form Name -->
-<legend>Enrollment Application</legend>
+  <!-- PROCESS FORM WITH AJAX (NEW) -->
+  <script>
 
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="firstname">First Name</label>
-  <div class="controls">
-    <input id="firstname" name="firstname" type="text" placeholder="" class="input-xlarge" required="">
+    // define angular module/app
+    var formApp = angular.module('formApp', []);
 
+    // create angular controller and pass in $scope and $http
+    function formController($scope, $http) {
+
+      // create a blank object to hold our form information
+      // $scope will allow this to pass between controller and view
+      $scope.formData = {};
+
+      // process the form
+      $scope.processForm = function() {
+        $http({
+              method  : 'POST',
+              url     : 'www.2015enroll.com:8000/post',
+              data    : $.param($scope.formData),  // pass in data as strings
+              //headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+          })
+              .success(function(data) {
+                  console.log(data);
+
+                  if (!data.success) {
+                    // if not successful, bind errors to error variables
+                      $scope.errorfirstname = data.errors.firstname;
+                      $scope.errorSuperhero = data.errors.superheroAlias;
+                  } else {
+                    // if successful, bind success message to message
+                      $scope.message = data.message;
+                  }
+              });
+
+      };
+
+    }
+
+  </script>
+</head>
+<!-- apply the module and controller to our body so angular is applied to that -->
+<body ng-app="formApp" ng-controller="formController">
+<div class="container">
+<div class="col-md-6 col-md-offset-3">
+
+  <!-- PAGE TITLE -->
+  <div class="page-header">
+    <h1><span class="glyphicon glyphicon-tower"></span>2015 U.S. Marketplace Enrollment</h1>
   </div>
+
+  <!-- SHOW ERROR/SUCCESS MESSAGES -->
+  <div id="messages" class="well" ng-show="message">{{ message }}</div>
+
+  <!-- FORM -->
+  <form ng-submit="processForm()">
+    <!-- NAME -->
+    <div id="firstname-group" class="form-group" ng-class="{ 'has-error' : errorfirstname }">
+      <label>First Name</label>
+      <input type="text" firstname="firstname" class="form-control" placeholder="Bob" ng-model="formData.firstname">
+      <span class="help-block" ng-show="errorName">{{ errorfirstname }}</span>
+    </div>
+
+
+    <!-- SUBMIT BUTTON -->
+    <button type="submit" class="btn btn-success btn-lg btn-block">
+      <span class="glyphicon glyphicon-flash"></span> Submit!
+    </button>
+  </form>
+
+  <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+  <pre>
+    {{ formData }}
+  </pre>
+
 </div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="middleinitial">Middle Initial</label>
-  <div class="controls">
-    <input id="middleinitial" name="middleinitial" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
 </div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="lastname">Last Name</label>
-  <div class="controls">
-    <input id="lastname" name="lastname" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="dob">Date of Birth</label>
-  <div class="controls">
-    <input id="dob" name="dob" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="ssn">Social Security Number</label>
-  <div class="controls">
-    <input id="ssn" name="ssn" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="phone">Phone Number</label>
-  <div class="controls">
-    <input id="phone" name="phone" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="address">Address</label>
-  <div class="controls">
-    <input id="address" name="address" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="address2">Address 2</label>
-  <div class="controls">
-    <input id="address2" name="address2" type="text" placeholder="" class="input-xlarge">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="city">City</label>
-  <div class="controls">
-    <input id="city" name="city" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="state">State</label>
-  <div class="controls">
-    <input id="state" name="state" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="zipcode">Zip</label>
-  <div class="controls">
-    <input id="zipcode" name="zipcode" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="county">County</label>
-  <div class="controls">
-    <input id="county" name="county" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="gender">Gender</label>
-  <div class="controls">
-    <input id="gender" name="gender" type="text" placeholder="Male/Female/Other" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="married">Married</label>
-  <div class="controls">
-    <input id="married" name="married" type="text" placeholder="Yes/No" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="employername">Employer</label>
-  <div class="controls">
-    <input id="employername" name="employername" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="employerphone">Employer Phone Number</label>
-  <div class="controls">
-    <input id="employerphone" name="employerphone" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="income">Income</label>
-  <div class="controls">
-    <input id="income" name="income" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="previousaddress">Previous Address</label>
-  <div class="controls">
-    <input id="previousaddress" name="previousaddress" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="previouscity">Previous City</label>
-  <div class="controls">
-    <input id="previouscity" name="previouscity" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="previousstate">Previous State</label>
-  <div class="controls">
-    <input id="previousstate" name="previousstate" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Text input-->
-<div class="control-group">
-  <label class="control-label" for="signature">Signature</label>
-  <div class="controls">
-    <input id="signature" name="signature" type="text" placeholder="" class="input-xlarge" required="">
-
-  </div>
-</div>
-
-<!-- Button (Double) -->
-<div class="control-group">
-  <label class="control-label" for="button1id"></label>
-  <div class="controls">
-    <input type="submit">
-    <button id="button1id" name="button1id" class="btn btn-success">Submit</button></input>
-    <button id="button2id" name="button2id" class="btn btn-danger">Cancel</button>
-  </div>
-</div>
-
-</fieldset>
-</form>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
