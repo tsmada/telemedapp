@@ -24,14 +24,7 @@ app.use(function(req, res, next) {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-        req.checkBody('firstname', 'Please provide your first name').notEmpty();
-        var errors = req.validationErrors();
-  if (errors) {
-    res.send('There have been validation errors: ' + util.inspect(errors), 400);
-    return;
-  } else {
     res.send(req.body);
-};
     });
 
 app.set('port', process.env.PORT || 8000);
