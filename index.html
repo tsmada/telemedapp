@@ -34,17 +34,18 @@
           })
               .success(function(data) {
                   console.log(data);
-                  $location.path('/success');
 
                   if (!data.success) {
                     // if not successful, bind errors to error variables
                       $scope.errorfirstname = data.errors.firstname;
                       $scope.errorSuperhero = data.errors.superheroAlias;
-                      $http.path('/success');
+                      $location.path('/failed');
+                      $http.path = $location.path;
                   } else {
                     // if successful, bind success message to message
                       $scope.message = data.message;
-                      $http.path('/success');
+                      $location.path('/success');
+                      $http.path = $location.path;
                   }
               });
 
