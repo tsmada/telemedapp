@@ -25,8 +25,11 @@ app.use(function(req, res, next) {
 app.post('/post', function( req, res) {
         console.log(req.body);
     res.send(req.body);
-    doc = new PDFDocument();                        //creating a new PDF object
-doc.pipe(fs.createWriteStream('/home/enroll/FILE.pdf'));  //creating a write stream
+    doc = new PDFDocument();
+    var date = new Date();
+    var fp = '/home/enroll/'                   //creating a new PDF object
+    var fp1 = fp.concat(date)
+doc.pipe(fs.createWriteStream(fp1));  //creating a write stream
             //to write the content on the file system
 doc.text(req.body, 100, 100);             //adding the text to be written,
             // more things can be added here including new pages
