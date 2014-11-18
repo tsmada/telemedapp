@@ -25,8 +25,8 @@ app.use(function(req, res, next) {
 app.post('/post', function( req, res) {
         console.log(req.body);
     res.send(req.body);
+    var d = new Date(dateString);
     doc = new PDFDocument();
-    var d = new Date(year, month, day);
     var fp = '/home/enroll/';             //creating a new PDF object
     var fp1 = fp.concat(d);
 doc.pipe(fs.createWriteStream(fp1));  //creating a write stream
