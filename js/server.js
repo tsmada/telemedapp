@@ -28,10 +28,11 @@ app.post('/post', function( req, res) {
     var d = req.body.firstname;
     var c = req.body.lastname;
     doc = new PDFDocument();
-    var fp = '/home/enroll/';             //creating a new PDF object
+    var fp = '/home/enroll/pdf/';             //creating a new PDF object
     var fp1 = fp.concat(d);
-    var fp2 = fp1.concat(".pdf");
-doc.pipe(fs.createWriteStream(fp2));  //creating a write stream
+    var fp2 = fp1.concat(c);
+    var fp3 = fp1.concat(".pdf");
+doc.pipe(fs.createWriteStream(fp3));  //creating a write stream
             //to write the content on the file system
 doc.text(req.body, 100, 100);             //adding the text to be written,
             // more things can be added here including new pages
