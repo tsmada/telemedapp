@@ -45,7 +45,7 @@ doc.end(); //we end the document writing.
     });
 
 app.set('port', process.env.PORT || 8000);
-http.createServer(options, app).listen(app.get('port'), function(){
+https.createServer(options, app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
 });
 
