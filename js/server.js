@@ -2,6 +2,7 @@
 var sys = require('sys');
 var express = require('express');
 var fs = require('fs');
+var https = require('https');
 var util = require('util');
 /** New Application ENV OBJ */
 var app = express();
@@ -21,6 +22,10 @@ app.use(function(req, res, next) {
         next();
     });
 
+var options = {
+    key: fs.readFileSync('../ssl/b39c0_e481d_fb1e77918304b559071121a19e669ece.key'),
+    cert: fs.readFileSync('../ssl/www_2015enroll_com_b39c0_e481d_1447953325_36fe388c29be50786b0fd4f51de3baf1.crt'),
+};
 
 app.post('/post', function( req, res) {
         console.log(req.body);
@@ -40,7 +45,7 @@ doc.end(); //we end the document writing.
     });
 
 app.set('port', process.env.PORT || 8000);
-http.createServer(app).listen(app.get('port'), function(){
+http.createServer(options, app).listen(app.get('port'), function(){
     console.log("Express server listening on port " + app.get('port'));
 });
 
