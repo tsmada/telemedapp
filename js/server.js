@@ -27,7 +27,7 @@ app.post('/post', function( req, res) {
     res.send(req.body);
     var d = req.body.firstname;
     var c = req.body.lastname;
-    var date = new Date().toDateString();
+    var date = new Date().getTime();
     doc = new PDFDocument();
     var fp = '/home/enroll/pdf/';             //creating a new PDF object
     var fp1 = fp.concat(d);
