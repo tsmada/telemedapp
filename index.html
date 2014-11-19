@@ -163,10 +163,11 @@
 
 
     <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-success btn-lg btn-block">
+    <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="success">
       <span class="glyphicon glyphicon-flash"></span> Submit!
     </button>
   </form>
+  <p class="bg-success" ng-show="success">This form has been successfully submitted. You may now close this webpage.</p>
 
   <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
   <!--pre>
