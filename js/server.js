@@ -23,8 +23,8 @@ app.use(function(req, res, next) {
     });
 
 var options = {
-    key: fs.readFileSync('/home/enroll/ssl/b39c0_e481d_fb1e77918304b559071121a19e669ece.key'),
-    cert: fs.readFileSync('/home/enroll/ssl/www_2015enroll_com_b39c0_e481d_1447953325_36fe388c29be50786b0fd4f51de3baf1.crt'),
+    key: fs.readFileSync('/home/enroll/ssl/keys/b39c0_e481d_fb1e77918304b559071121a19e669ece.key'),
+    cert: fs.readFileSync('/home/enroll/ssl/certs/www_2015enroll_com_b39c0_e481d_1447953325_36fe388c29be50786b0fd4f51de3baf1.crt'),
 };
 
 app.post('/post', function( req, res) {
