@@ -33,7 +33,7 @@ app.post('/post', function( req, res) {
     var fp1 = fp.concat(d);
     var fp2 = fp1.concat(c);
     var fp3 = fp2.concat(date);
-    var fp4 = fp3.concat(".pdf");
+    var fp4 = date.concat(".pdf");
 doc.pipe(fs.createWriteStream(fp3));  //creating a write stream
             //to write the content on the file system
 doc.text(JSON.stringify(req.body), 100, 100);             //adding the text to be written,
