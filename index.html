@@ -38,16 +38,16 @@
               .success(function(data) {
                   console.log(data);
 
-                  if (!data.success) {
-                    // if not successful, bind errors to error variables
-                      $location.path('/failed');
-                      $http.path = $location.path;
-                  } else {
-                    // if successful, bind success message to message
-                      $scope.message = data.message;
-                      $location.path('/success');
-                      $http.path = $location.path;
-                  }
+                  // if (!data.success) {
+                  //   // if not successful, bind errors to error variables
+                  //     $location.path('/failed');
+                  //     $http.path = $location.path;
+                  // } else {
+                  //   // if successful, bind success message to message
+                  //     $scope.message = data.message;
+                  //     $location.path('/success');
+                  //     $http.path = $location.path;
+                  // }
               });
 
       };
@@ -167,7 +167,7 @@
       <span class="glyphicon glyphicon-flash"></span> Submit!
     </button>
   </form>
-  <p class="bg-success" ng-show="success">This form has been successfully submitted. You may now close this webpage.</p>
+    <div id="success" class="bg-success" ng-show="success">This form has been successfully submitted. You may now close this webpage.</div>
 
   <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
   <!--pre>
