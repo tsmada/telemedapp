@@ -38,16 +38,17 @@
               .success(function(data) {
                   console.log(data);
 
-                  // if (!data.success) {
-                  //   // if not successful, bind errors to error variables
-                  //     $location.path('/failed');
-                  //     $http.path = $location.path;
-                  // } else {
-                  //   // if successful, bind success message to message
-                  //     $scope.message = data.message;
-                  //     $location.path('/success');
-                  //     $http.path = $location.path;
-                  // }
+
+                    if (!data.success) {
+                      // if not successful, bind errors to error variables
+                        $location.path('/failed');
+                        $http.path = $location.path;
+                    } else {
+                      // if successful, bind success message to message
+                        $scope.message = data.message;
+                        $location.path('/success');
+                        $http.path = $location.path;
+                    }
               });
 
       };
@@ -292,7 +293,7 @@
 
 
             <!-- SUBMIT BUTTON -->
-            <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="success=true">
+            <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="success()">
                 <span class="glyphicon glyphicon-flash"></span> Submit!
             </button>
         </form>

@@ -29,8 +29,9 @@ var options = {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
+    var success = "Success";
     var message = "Success";
-    res.send(message);
+    res.send(success);
     var d = req.body.firstname;
     var c = req.body.lastname;
     var date = new Date().getTime().toString();
