@@ -156,10 +156,10 @@
     </div>
     <div class="form-group">
       <label>Additional Family Members Applying For Insurance</label>
-      <input type="radio" id="additional" name="additional" value="yes" ng-model="formData.additional" required> Yes
-      <input type="radio" id="additional" name="additional" value="no" ng-model="formData.additional" required> No
+      <input type="radio" id="additional" name="additional" value="yes" ng-click="additional=true" required> Yes
+      <input type="radio" id="additional" name="additional" value="no" ng-click="additional=false" required> No
     </div>
-    <div class="jumbotron" ng-show="additional">dependent code here</h1></div>
+    <div class="jumbotron" ng-show="additional=true">dependent code here</h1></div>
     <div class="form-group" >
       <label>Authorization</label>
       <input type="text" class="form-control" placeholder="Bob J Smith" ng-model="formData.authorization" required>
