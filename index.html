@@ -58,144 +58,151 @@
 </head>
 <!-- apply the module and controller to our body so angular is applied to that -->
 <body ng-app="formApp" ng-controller="formController">
-<div class="container">
-<!--div class="col-md-6 col-md-offset-3"-->
+    <div class="container">
+        <!--div class="col-md-6 col-md-offset-3"-->
 
-  <!-- PAGE TITLE -->
-  <div class="page-header">
-    <h1><span class="glyphicon glyphicon-tower"></span>2015 U.S. Marketplace Enrollment</h1>
-  </div>
+        <!-- PAGE TITLE -->
+        <div class="page-header">
+            <h1><span class="glyphicon glyphicon-tower"></span>2015 U.S. Marketplace Enrollment</h1>
+        </div>
 
-  <!-- SHOW ERROR/SUCCESS MESSAGES -->
-  <div id="messages" class="well" ng-show="message">{{ message }}</div>
+        <!-- SHOW ERROR/SUCCESS MESSAGES -->
+        <div id="messages" class="well" ng-show="message">{{ message }}</div>
 
-  <!-- FORM -->
-  <form ng-submit="processForm()">
-    <!-- NAME -->
-    <div class="form-group">
-      <label>First Name</label>
-      <input type="text" class="form-control" placeholder="Bob" ng-model="formData.firstname" ng-minlength=2 required>
-    </div>
-    <div class="form-group">
-      <label>Middle Initial</label>
-      <input type="text" class="form-control" placeholder="J" ng-model="formData.middleinitial" ng-maxlength=1 required>
-    </div>
-    <div class="form-group" >
-      <label>Last Name</label>
-      <input type="text" class="form-control" placeholder="Smith" ng-model="formData.lastname" required>
-    </div>
-    <div class="form-group">
-      <label>Date of Birth</label>
-      <input type="text" class="form-control" placeholder="08/05/1966" ng-model="formData.dateofbirth" required>
-    </div>
-    <div class="form-group">
-      <label>SSN</label>
-      <input type="text" class="form-control" placeholder="999-90-9999" ng-model="formData.ssn" required>
-    </div>
-    <div class="form-group" >
-      <label>Phone</label>
-      <input type="text" class="form-control" placeholder="999-999-9999" ng-model="formData.phone" required>
-    </div>
-    <div class="form-group">
-      <label>Address</label>
-      <input type="text" class="form-control" placeholder="840 Mockingjay Lane" ng-model="formData.address" required>
-    </div>
-    <div class="form-group">
-      <label>Address 2</label>
-      <input type="text" class="form-control" placeholder="Apartment #83" ng-model="formData.address2">
-    </div>
-    <div class="form-group" >
-      <label>City</label>
-      <input type="text" class="form-control" placeholder="New York" ng-model="formData.city" required>
-    </div>
-    <div class="form-group">
-      <label>State</label>
-      <input type="text" class="form-control" placeholder="New York" ng-model="formData.state" required>
-    </div>
-    <div class="form-group">
-      <label>Zip Code</label>
-      <input type="text" class="form-control" placeholder="10004" ng-model="formData.zipcode" required>
-    </div>
-    <div class="form-group" >
-      <label>County</label>
-      <input type="text" class="form-control" placeholder="Manhattan" ng-model="formData.county" required>
-    </div>
-    <div class="form-group">
-      <label>Employer</label>
-      <input type="text" class="form-control" placeholder="Walmart" ng-model="formData.employer" required>
-    </div>
-    <div class="form-group">
-      <label>Employer Phone</label>
-      <input type="text" class="form-control" placeholder="999-999-9999" ng-model="formData.employerphone" required>
-    </div>
-    <div class="form-group" >
-      <label>Annual Income</label>
-      <input type="text" class="form-control" placeholder="$14,500" ng-model="formData.income" required>
-    </div>
-    <div class="form-group">
-      <label>Previous Address</label>
-      <input type="text" class="form-control" placeholder="130 Wall Street" ng-model="formData.previousaddress" required>
-    </div>
-    <div class="form-group">
-      <label>Previous City</label>
-      <input type="text" class="form-control" placeholder="Atlantic City" ng-model="formData.previouscity" required>
-    </div>
-    <div class="form-group" >
-      <label>Previous State</label>
-      <input type="text" class="form-control" placeholder="New Jersey" ng-model="formData.previousstate" required>
-    </div>
-    <div class="form-group">
-      <label>Gender:</label>
-      <input type="radio" id="gender" name="gender" value="female" ng-model="formData.genderfemale" required> Female
-      <input type="radio" id="gender" name="gender" value="male" ng-model="formData.gendermale" required> Male
-    </div>
-    <div class="form-group">
-      <label>Married:</label>
-      <input type="radio" id="married" name="married" value="yes" ng-model="formData.married" required> Yes
-      <input type="radio" id="married" name="married" value="no" ng-model="formData.married" required> No
-    </div>
-    <div class="form-group">
-      <label>Additional Family Members Applying For Insurance</label>
-      <input type="radio" id="additional" name="additional" value="yes" ng-click="additional=true" ng-model="formData.additional" required> Yes
-      <input type="radio" id="additional" name="additional" value="no" ng-click="additional=false" ng-model="formData.additional" required> No
-    </div>
-    <div class="jumbotron" ng-show="additional">
-      <div class="row">
-  <div class="col-md-4"><div class="form-group">
-      <label>First Name</label>
-      <input type="text" class="form-control" placeholder="Bob" ng-model="formData.firstname" ng-minlength=2 required>
-    </div></div>
-  <div class="col-md-4"><div class="form-group">
-      <label>Middle Initial</label>
-      <input type="text" class="form-control" placeholder="J" ng-model="formData.middleinitial" ng-maxlength=1 required>
-    </div></div>
-  <div class="col-md-4"><div class="form-group" >
-      <label>Last Name</label>
-      <input type="text" class="form-control" placeholder="Smith" ng-model="formData.lastname" required>
-    </div></div>
-</div>
-    </div>
-    <div class="form-group" >
-      <label>Authorization</label>
-      <input type="text" class="form-control" placeholder="Bob J Smith" ng-model="formData.authorization" required>
-      I authorize this group to process my application for health insurance in the U.S. Marketplace. I will file my 2014 and 2015 income tax returns. I approve the use of my tax subsidy for payment of my health insurance.
-    </div>
+        <!-- FORM -->
+        <form ng-submit="processForm()">
+            <!-- NAME -->
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="Bob" ng-model="formData.firstname" ng-minlength=2 required>
+            </div>
+            <div class="form-group">
+                <label>Middle Initial</label>
+                <input type="text" class="form-control" placeholder="J" ng-model="formData.middleinitial" ng-maxlength=1 required>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Smith" ng-model="formData.lastname" required>
+            </div>
+            <div class="form-group">
+                <label>Date of Birth</label>
+                <input type="text" class="form-control" placeholder="08/05/1966" ng-model="formData.dateofbirth" required>
+            </div>
+            <div class="form-group">
+                <label>SSN</label>
+                <input type="text" class="form-control" placeholder="999-90-9999" ng-model="formData.ssn" required>
+            </div>
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" class="form-control" placeholder="999-999-9999" ng-model="formData.phone" required>
+            </div>
+            <div class="form-group">
+                <label>Address</label>
+                <input type="text" class="form-control" placeholder="840 Mockingjay Lane" ng-model="formData.address" required>
+            </div>
+            <div class="form-group">
+                <label>Address 2</label>
+                <input type="text" class="form-control" placeholder="Apartment #83" ng-model="formData.address2">
+            </div>
+            <div class="form-group">
+                <label>City</label>
+                <input type="text" class="form-control" placeholder="New York" ng-model="formData.city" required>
+            </div>
+            <div class="form-group">
+                <label>State</label>
+                <input type="text" class="form-control" placeholder="New York" ng-model="formData.state" required>
+            </div>
+            <div class="form-group">
+                <label>Zip Code</label>
+                <input type="text" class="form-control" placeholder="10004" ng-model="formData.zipcode" required>
+            </div>
+            <div class="form-group">
+                <label>County</label>
+                <input type="text" class="form-control" placeholder="Manhattan" ng-model="formData.county" required>
+            </div>
+            <div class="form-group">
+                <label>Employer</label>
+                <input type="text" class="form-control" placeholder="Walmart" ng-model="formData.employer" required>
+            </div>
+            <div class="form-group">
+                <label>Employer Phone</label>
+                <input type="text" class="form-control" placeholder="999-999-9999" ng-model="formData.employerphone" required>
+            </div>
+            <div class="form-group">
+                <label>Annual Income</label>
+                <input type="text" class="form-control" placeholder="$14,500" ng-model="formData.income" required>
+            </div>
+            <div class="form-group">
+                <label>Previous Address</label>
+                <input type="text" class="form-control" placeholder="130 Wall Street" ng-model="formData.previousaddress" required>
+            </div>
+            <div class="form-group">
+                <label>Previous City</label>
+                <input type="text" class="form-control" placeholder="Atlantic City" ng-model="formData.previouscity" required>
+            </div>
+            <div class="form-group">
+                <label>Previous State</label>
+                <input type="text" class="form-control" placeholder="New Jersey" ng-model="formData.previousstate" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" id="gender" name="gender" value="female" ng-model="formData.genderfemale" required> Female
+                <input type="radio" id="gender" name="gender" value="male" ng-model="formData.gendermale" required> Male
+            </div>
+            <div class="form-group">
+                <label>Married:</label>
+                <input type="radio" id="married" name="married" value="yes" ng-model="formData.married" required> Yes
+                <input type="radio" id="married" name="married" value="no" ng-model="formData.married" required> No
+            </div>
+            <div class="form-group">
+                <label>Additional Family Members Applying For Insurance</label>
+                <input type="radio" id="additional" name="additional" value="yes" ng-click="additional=true" ng-model="formData.additional" required> Yes
+                <input type="radio" id="additional" name="additional" value="no" ng-click="additional=false" ng-model="formData.additional" required> No
+            </div>
+            <div class="jumbotron" ng-show="additional">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="Barbara" ng-model="formData.additional1firstname" ng-minlength=2 required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Middle Initial</label>
+                            <input type="text" class="form-control" placeholder="L" ng-model="formData.additional1middleinitial" ng-maxlength=1 required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Smith" ng-model="formData.additional1lastname" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Authorization</label>
+                <input type="text" class="form-control" placeholder="Bob J Smith" ng-model="formData.authorization" required> I authorize this group to process my application for health insurance in the U.S. Marketplace. I will file my 2014 and 2015 income tax returns. I approve the use of my tax subsidy for payment of my health insurance.
+            </div>
 
 
 
-    <!-- SUBMIT BUTTON -->
-    <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="success=true">
-      <span class="glyphicon glyphicon-flash"></span> Submit!
-    </button>
-  </form>
-    <div class="jumbotron" ng-if="formData.success"><h1>This form has been successfully submitted. You may now close this webpage.</h1></div>
+            <!-- SUBMIT BUTTON -->
+            <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="success=true">
+                <span class="glyphicon glyphicon-flash"></span> Submit!
+            </button>
+        </form>
+        <div class="jumbotron" ng-if="formData.success">
+            <h1>This form has been successfully submitted. You may now close this webpage.</h1>
+        </div>
 
-  <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
-  <!--pre>
+        <!-- SHOW DATA FROM INPUTS AS THEY ARE BEING TYPED -->
+        <!--pre>
     {{ formData }}
   </pre-->
 
-<!--/div-->
-</div>
+        <!--/div-->
+    </div>
 </body>
 </html>
