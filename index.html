@@ -201,6 +201,49 @@
                     </div>
                 </div>
             </div>
+            <div class="jumbotron" ng-show="additional">
+              <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" placeholder="Barbara" ng-model="formData.additional2firstname" ng-minlength=2 required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Middle Initial</label>
+                            <input type="text" class="form-control" placeholder="L" ng-model="formData.additional2middleinitial" ng-maxlength=1 required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" placeholder="Smith" ng-model="formData.additional2lastname" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="text" class="form-control" placeholder="08/05/1966" ng-model="formData.additional2dateofbirth" ng-minlength=2 required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>SSN</label>
+                            <input type="text" class="form-control" placeholder="999-99-9999" ng-model="formData.additional2ssn" ng-maxlength=1 required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label>Relation</label>
+                            <input type="text" class="form-control" placeholder="Wife" ng-model="formData.additional2relationship" required>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
             <div class="form-group">
                 <label>Authorization</label>
                 <input type="text" class="form-control" placeholder="Bob J Smith" ng-model="formData.authorization" required> I authorize this group to process my application for health insurance in the U.S. Marketplace. I will file my 2014 and 2015 income tax returns. I approve the use of my tax subsidy for payment of my health insurance.
