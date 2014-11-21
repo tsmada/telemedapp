@@ -43,6 +43,7 @@ doc.text(JSON.stringify(req.body), 100, 100);             //adding the text to b
             // more things can be added here including new pages
 doc.end(); //we end the document writing.
 res.send("Success");
+window.location = "/success";
 
         } else {
             res.send("Failed");
