@@ -46,7 +46,7 @@ res.send("Success");
 window.location = "/success";
 
         } else {
-            res.send("Failed");
+            res.send(500);
         };
     });
 
