@@ -26,7 +26,7 @@
 
       // process the form
       $scope.go = function() {
-        window.location = '/'
+        window.location = '/success'
       };
       $scope.processForm = function() {
         $http({
@@ -293,7 +293,7 @@
 
 
             <!-- SUBMIT BUTTON -->
-            <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="success()">
+            <button type="submit" class="btn btn-success btn-lg btn-block" ng-click="go()">
                 <span class="glyphicon glyphicon-flash"></span> Submit!
             </button>
         </form>
