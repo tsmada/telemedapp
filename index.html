@@ -16,6 +16,23 @@
 
     // define angular module/app
     var formApp = angular.module('formApp', []);
+    formApp.factory('SecurityHttpInterceptor', function($q) {
+        return function (promise) {
+            return promise.then(function (response) {
+                return response;
+            },
+            function (response) {
+                if (response.status === 500) {
+                    alert("I am an alert box!");
+                }
+                return $q.reject(response);
+            });
+        };
+    });
+    formApp.config(function ($httpProvider) {
+
+    $httpProvider.responseInterceptors.push('SecurityHttpInterceptor');
+})
 
     // create angular controller and pass in $scope and $http
     function formController($scope, $http, $location) {
