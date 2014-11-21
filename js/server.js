@@ -29,7 +29,7 @@ var options = {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-        if (req.body.firstname.length() > 1) {
+        if (req.body.firstname) {
             var d = req.body.firstname;
     var c = req.body.lastname;
     var date = new Date().getTime().toString();
