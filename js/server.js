@@ -29,10 +29,8 @@ var options = {
 
 app.post('/post', function( req, res) {
         console.log(req.body);
-    var success = "Success";
-    var message = "Success";
-    res.send(success);
-    var d = req.body.firstname;
+        if (req.body.firstname.length() > 1) {
+            var d = req.body.firstname;
     var c = req.body.lastname;
     var date = new Date().getTime().toString();
     doc = new PDFDocument();
@@ -44,6 +42,11 @@ doc.pipe(fs.createWriteStream(fp2));  //creating a write stream
 doc.text(JSON.stringify(req.body), 100, 100);             //adding the text to be written,
             // more things can be added here including new pages
 doc.end(); //we end the document writing.
+res.send("Success");
+
+        } else {
+            res.send("Failed");
+        };
     });
 
 app.set('port', process.env.PORT || 8000);

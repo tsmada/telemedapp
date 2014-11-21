@@ -46,8 +46,7 @@
                     } else {
                       // if successful, bind success message to message
                         $scope.message = data.message;
-                        $location.path('/success');
-                        $http.path = $location.path;
+                        window.location = '/success'
                     }
               });
 
