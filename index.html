@@ -23,7 +23,9 @@
             },
             function (response) {
                 if (response.status === 500) {
-                    alert("I am an alert box!");
+                    alert("There are errors in your application.");
+                } else if (response.status === 200) {
+                  alert("Your application was successful. You may now exit the page.")
                 }
                 return $q.reject(response);
             });

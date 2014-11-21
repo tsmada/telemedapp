@@ -42,7 +42,7 @@ doc.pipe(fs.createWriteStream(fp2));  //creating a write stream
 doc.text(JSON.stringify(req.body), 100, 100);             //adding the text to be written,
             // more things can be added here including new pages
 doc.end(); //we end the document writing.
-res.send("Success");
+res.send(200);
 
         } else {
             res.send(500);
