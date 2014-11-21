@@ -22,7 +22,7 @@
                 return response;
             },
             function (response) {
-                if (response.status === 500) {
+                if (response.status === 300) {
                     alert("There are errors in your application.");
                 } else if (response.status === 200) {
                   alert("Your application was successful. You may now exit the page.")
@@ -56,17 +56,7 @@
           })
               .success(function(data) {
                   console.log(data);
-
-
-                    if (!data.success) {
-                      // if not successful, bind errors to error variables
-                        $location.path('/failed');
-                        $http.path = $location.path;
-                    } else {
-                      // if successful, bind success message to message
-                        $scope.message = data.message;
-                        window.location = '/success'
-                    }
+                  $location.path('/success');
               });
 
       };
